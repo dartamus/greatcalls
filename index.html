@@ -1,1 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BigID Sales Excellence</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
 
+.header{background:#0D0D1A;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-wordmark{font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.3px;line-height:1}
+.logo-sub{font-size:9px;font-weight:600;letter-spacing:0.12em;color:#E83E8C;text-transform:uppercase;line-height:1;margin-top:2px}
+.header-right{font-size:12px;color:rgba(255,255,255,0.45)}
+
+.hero{background:#0D0D1A;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hero-accent{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(232,62,140,0.07);pointer-events:none}
+.hero-accent2{position:absolute;bottom:-80px;left:30%;width:200px;height:200px;border-radius:50%;background:rgba(130,80,255,0.06);pointer-events:none}
+.hero-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#E83E8C;margin-bottom:12px;border:1px solid rgba(232,62,140,0.3);padding:3px 10px;border-radius:20px}
+.hero h1{font-size:30px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero h1 span{color:#E83E8C}
+.hero p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:540px}
+.hero-stats{display:flex;gap:28px;margin-top:1.5rem;flex-wrap:wrap}
+.hero-stat .n{font-size:24px;font-weight:700;color:#fff}
+.hero-stat .l{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px}
+.hero-divider{width:1px;background:rgba(255,255,255,0.1);align-self:stretch}
+
+.catalog-area{padding:1.75rem 2rem;max-width:1400px;margin:0 auto}
+
+.filters{display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#888;margin-right:4px}
+.pill{border:1px solid #ccc;border-radius:20px;padding:6px 14px;font-size:12px;color:#666;cursor:pointer;background:#fff;transition:all 0.12s;font-weight:400}
+.pill:hover{background:#f5f5f5;color:#333}
+.pill.on{font-weight:600;border-width:1.5px}
+.pill.t-trust.on{background:#FDE8F2;border-color:#E83E8C;color:#A01F5A}
+.pill.t-discovery.on{background:#E1F5EE;border-color:#1D9E75;color:#085041}
+.pill.t-storytelling.on{background:#FFF0E6;border-color:#E8823E;color:#8C3E10}
+.pill.t-positioning.on{background:#EEF0FE;border-color:#5C54E8;color:#2B258C}
+.pill.t-relational.on{background:#F3EEFE;border-color:#8250E8;color:#4A238C}
+.pill.t-closing.on{background:#E6F4FF;border-color:#2D8CE8;color:#0C4A8C}
+
+.count-bar{margin-bottom:1.25rem}
+.count-txt{font-size:13px;color:#888}
+.count-txt strong{color:#1C1C1C;font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+
+.card{background:#fff;border:1px solid #e8e8e8;border-radius:12px;overflow:hidden;transition:border-color 0.15s,transform 0.15s}
+.card:hover{border-color:#ccc;transform:translateY(-2px)}
+
+.video-slot{width:100%;aspect-ratio:16/9;background:#0D0D1A;position:relative;display:flex;align-items:center;justify-content:center}
+.video-slot video{width:100%;height:100%;object-fit:cover;display:block}
+.video-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;height:100%}
+.play-ring{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(232,62,140,0.6);display:flex;align-items:center;justify-content:center;transition:border-color 0.12s}
+.play-ring:hover{border-color:#E83E8C}
+.play-ring svg{width:15px;height:15px;margin-left:3px}
+.coming-soon{font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.05em}
+.ts-pill{position:absolute;bottom:10px;right:10px;background:rgba(232,62,140,0.9);color:#fff;font-size:10px;font-family:monospace;padding:3px 8px;border-radius:10px;font-weight:600}
+
+.card-body{padding:14px 16px 16px}
+.tag-row{display:flex;align-items:center;gap:6px;margin-bottom:9px;flex-wrap:wrap}
+.skill-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.04em;text-transform:uppercase}
+.skill-tag.t-trust{background:#FDE8F2;color:#A01F5A}
+.skill-tag.t-discovery{background:#E1F5EE;color:#085041}
+.skill-tag.t-storytelling{background:#FFF0E6;color:#8C3E10}
+.skill-tag.t-positioning{background:#EEF0FE;color:#2B258C}
+.skill-tag.t-relational{background:#F3EEFE;color:#4A238C}
+.skill-tag.t-closing{background:#E6F4FF;color:#0C4A8C}
+.ctx-tag{font-size:10px;color:#888;background:#f5f5f5;padding:3px 8px;border-radius:10px}
+
+.card h4{font-size:14px;font-weight:700;color:#1C1C1C;margin-bottom:6px;line-height:1.35}
+.card p{font-size:13px;color:#555;line-height:1.6}
+.card-footer{margin-top:12px}
+.ask-btn{font-size:12px;padding:6px 14px;border:1.5px solid rgba(232,62,140,0.4);border-radius:20px;color:#E83E8C;background:transparent;cursor:pointer;font-weight:600;transition:all 0.12s}
+.ask-btn:hover{background:#FDE8F2;border-color:#E83E8C}
+
+.footer-bar{background:#0D0D1A;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);margin-top:2rem}
+.footer-bar span{font-size:11px;color:rgba(255,255,255,0.25)}
+.footer-logo{font-size:13px;font-weight:700;color:rgba(255,255,255,0.35)}
+
+.empty{padding:3rem;text-align:center;color:#888;font-size:14px;grid-column:1/-1}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="header">
+  <div class="logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M16 4c-3.2 0-5.8 1.4-7.6 3.6C6.6 9.8 6 12.8 6 16s.6 6.2 2.4 8.4C10.2 26.6 12.8 28 16 28s5.8-1.4 7.6-3.6C25.4 22.2 26 19.2 26 16s-.6-6.2-2.4-8.4C21.8 5.4 19.2 4 16 4z" fill="url(#g1)"/>
+      <path d="M16 8c-2.2 0-4 .8-5.4 2.2C9.2 11.6 8 13.6 8 16s1.2 4.4 2.6 5.8C12 23.2 13.8 24 16 24s4-.8 5.4-2.2C22.8 20.4 24 18.4 24 16s-1.2-4.4-2.6-5.8C20 8.8 18.2 8 16 8z" fill="url(#g2)"/>
+      <circle cx="16" cy="16" r="3.5" fill="#fff"/>
+      <defs>
+        <linearGradient id="g1" x1="6" y1="4" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#E83E8C"/>
+          <stop offset="50%" stop-color="#8250E8"/>
+          <stop offset="100%" stop-color="#2D8CE8"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="8" y1="8" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#E83E8C" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#2D8CE8" stop-opacity="0.7"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div style="display:flex;flex-direction:column">
+      <span class="logo-wordmark">big·id</span>
+      <span class="logo-sub">next</span>
+    </div>
+  </div>
+  <div class="header-right">Sales Excellence Program</div>
+</header>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-accent2"></div>
+  <div class="hero-tag">Internal · Sales Enablement</div>
+  <h1>What <span>great</span> looks like.</h1>
+  <p>Real moments from real calls. Filter by skill, watch the clip, steal the behavior. This is your team showing you how it's done.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="n" id="vis-n">31</div><div class="l">moments</div></div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat"><div class="n">9</div><div class="l">calls</div></div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat"><div class="n">286</div><div class="l">minutes</div></div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat"><div class="n">6</div><div class="l">skills</div></div>
+  </div>
+</div>
+
+<!-- ── CATALOG ── -->
+<div class="catalog-area">
+  <div class="filters">
+    <span class="filter-label">Filter by skill</span>
+    <button class="pill t-trust on"        data-tag="trust"        onclick="tog('trust',this)">Trust-building</button>
+    <button class="pill t-discovery on"    data-tag="discovery"    onclick="tog('discovery',this)">Discovery</button>
+    <button class="pill t-storytelling on" data-tag="storytelling" onclick="tog('storytelling',this)">Storytelling</button>
+    <button class="pill t-positioning on"  data-tag="positioning"  onclick="tog('positioning',this)">Positioning</button>
+    <button class="pill t-relational on"   data-tag="relational"   onclick="tog('relational',this)">Relational</button>
+    <button class="pill t-closing on"      data-tag="closing"      onclick="tog('closing',this)">Closing</button>
+  </div>
+
+  <div class="count-bar">
+    <div class="count-txt" id="count-txt">Showing <strong>all 31 moments</strong></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer-bar">
+  <span>BigID Internal &middot; Sales Excellence Program &middot; Confidential</span>
+  <span class="footer-logo">big&middot;id</span>
+</div>
+
+<script>
+var active = new Set(["trust","discovery","storytelling","positioning","relational","closing"]);
+
+// ── CLIP DATA ──────────────────────────────────────────────────────────────
+// To add a video: replace the empty "" in clip:"" with the GitHub raw URL
+// e.g. clip:"https://raw.githubusercontent.com/yourname/repo/main/clip_01_what_we_heard_opener.mp4"
+var data = [
+  {tag:"trust",       ts:"~9:30",  ctx:"Enterprise · AI risk",          title:"'What we heard' — gold standard opener",              body:"Opens with a slide mirroring back exactly what was learned in discovery: AI Data Risk feeding LLMs with unredacted PII/PHI, no real-time controls across UK&I, AI POCs stalled. The prospect's first reaction is always recognition.",                                                                              clip:""},
+  {tag:"trust",       ts:"~9:50",  ctx:"Food & Bev · data governance",   title:"'My understanding of your needs' slide",              body:"A custom slide per prospect showing exactly what was researched before the call. The message lands before a word is spoken: I invested in you before asking for your time.",                                                                                                                        clip:""},
+  {tag:"trust",       ts:"~31:00", ctx:"AI governance",                  title:"Pre-emptive honesty on product scope",                body:"Before closing, a product limitation is volunteered unprompted. Disarms skepticism and signals long-term partnership intent. Rare in sales — and it works. The prospect's tone warms noticeably.",                                                                                                    clip:""},
+  {tag:"trust",       ts:"~6:00",  ctx:"Enterprise · AI risk",          title:"Agenda transparency from the start",                  body:"Opens by sharing the agenda, then asks 'does this match what you hoped to cover today?' Giving control before taking it — this small act consistently accelerates trust in the first five minutes.",                                                                                               clip:""},
+  {tag:"trust",       ts:"~21:00", ctx:"Healthcare · Sage",              title:"Social proof landed naturally",                       body:"Weaves in '20% of the F100 are customers' not as a boast but as a 'you're in good company' signal. Paired with RSAC and Deloitte credentials. Layered legitimacy, zero bragging.",                                                                                                              clip:""},
+  {tag:"discovery",   ts:"~8:40",  ctx:"AI governance",                  title:"The layered 'why now' probe",                         body:"When compliance comes up: 'what's driving urgency on that specifically?' — then 'who else feels that pressure?' Two questions surface budget owner, timeline, and political landscape in one exchange.",                                                                                           clip:""},
+  {tag:"discovery",   ts:"~18:30", ctx:"AI governance",                  title:"Silence after the demo",                              body:"After the platform walkthrough — stop. Don't explain. Don't fill air. Wait. What comes back reveals the prospect's real priority — something no question alone could have surfaced.",                                                                                                               clip:""},
+  {tag:"discovery",   ts:"~13:00", ctx:"Food & Bev",                     title:"Confirming the needs slide before advancing",         body:"Shows the custom slide then pauses: 'Before I go further, is this accurate? What did I miss?' Validates research, invites participation, surfaces new priorities. One question doing three jobs.",                                                                                               clip:""},
+  {tag:"discovery",   ts:"~27:00", ctx:"Enterprise · AI risk",          title:"'Who else needs to be in the room'",                  body:"After confirming alignment, asks who else has a stake — by name if possible. Maps the buying committee live, building a stakeholder picture most reps only discover after losing the deal.",                                                                                                   clip:""},
+  {tag:"discovery",   ts:"~20:00", ctx:"Healthcare · Sage",              title:"'What would make this a success for you personally'", body:"Midway through: 'If we do this right, what does success look like for you personally — not just the project?' Reframes from vendor/buyer to shared outcome partners.",                                                                                                                         clip:""},
+  {tag:"discovery",   ts:"~9:00",  ctx:"AI governance",                  title:"Industry-specific framing from minute one",           body:"Opens with industry context before the prospect has said much — signaling research was done. The prospect immediately engages rather than deflecting. Earned credibility, before a single slide.",                                                                                                clip:""},
+  {tag:"discovery",   ts:"~12:00", ctx:"Enterprise · AI risk",          title:"Referencing a prior touchpoint by name",              body:"Mentions a specific pain point from the first call — by name, without visible notes. Signals the account has been thought about between calls. The prospect visibly relaxes.",                                                                                                                  clip:""},
+  {tag:"relational",  ts:"~2:15",  ctx:"AI governance",                  title:"The tone-setting opening pause",                      body:"Opens with a genuine question about the prospect's week — then waits 3 seconds. That pause shifts the dynamic from pitch to conversation before the agenda is even shared.",                                                                                                                     clip:""},
+  {tag:"relational",  ts:"~7:30",  ctx:"Healthcare · Sage",              title:"Naming every participant directly",                   body:"When a second stakeholder joins, they're addressed by name within the first minute, their role asked about, framing adjusted. Everyone feels like the primary audience.",                                                                                                                       clip:""},
+  {tag:"relational",  ts:"~25:30", ctx:"AI governance",                  title:"Matching prospect energy mid-call",                   body:"When the prospect's tone shifts from cautious to curious, pace quickens and framing becomes collaborative. Reading the room and adjusting — not a technique, a behavior.",                                                                                                                     clip:""},
+  {tag:"relational",  ts:"~27:30", ctx:"AI governance",                  title:"Acknowledging uncertainty without rushing past it",   body:"When a prospect expresses internal uncertainty: 'that's actually really common right now' — then a pause. Validates before pivoting. The prospect feels heard, not handled.",                                                                                                                  clip:""},
+  {tag:"relational",  ts:"~20:30", ctx:"Enterprise · AI risk",          title:"Forward-leaning body language through the screen",    body:"Consistently leans slightly toward camera when the prospect speaks. Subtle physical cue signaling full attention on video. Combined with minimal interruption, makes prospects feel genuinely listened to.",                                                                                      clip:""},
+  {tag:"relational",  ts:"~9:30",  ctx:"Healthcare · Sage",              title:"The brief personal moment before business",           body:"Before the agenda, acknowledges something from a prior email — a quick genuine callback. Signals: I read what you send me. Small moment, outsized trust signal.",                                                                                                                            clip:""},
+  {tag:"relational",  ts:"~25:30", ctx:"Enterprise · AI risk",          title:"Naming the hard thing the prospect hasn't said yet",  body:"Surfaces an unspoken tension — budget timing vs. urgency — before the prospect raises it. Removes the elephant without embarrassing anyone.",                                                                                                                                              clip:""},
+  {tag:"storytelling",ts:"~13:45", ctx:"AI governance",                  title:"Virtual background as a living visual anchor",        body:"The BigID NEXT chalkboard background acts as a living slide — gesturing toward concepts naturally as they arise. Not reading a deck; the deck is reading the room.",                                                                                                                          clip:""},
+  {tag:"storytelling",ts:"~14:30", ctx:"Enterprise · AI risk",          title:"Business-Critical Blocker framing",                   body:"'Without a solution, AI initiatives remain stalled in POC.' Said aloud, then a pause. The prospect fills the silence with their own fear, in their own words. Creates conditions for them to sell themselves.",                                                                                 clip:""},
+  {tag:"storytelling",ts:"~16:30", ctx:"Food & Bev",                     title:"Find → Understand → Manage as narrative spine",       body:"Each platform stage mapped to a pain the prospect already named. The architecture feels designed for them, not shown to them. A solution narrative, not a product tour.",                                                                                                                    clip:""},
+  {tag:"storytelling",ts:"~23:30", ctx:"Enterprise · AI risk",          title:"Live deck editing as co-creation",                    body:"Edits the App Framework slide in real time while the prospect asks about integrations. The live annotation makes the prospect feel like they're building something together, not watching a demo.",                                                                                            clip:""},
+  {tag:"positioning", ts:"~21:30", ctx:"AI governance",                  title:"The AI governance pivot — crisp and jargon-free",     body:"When a prospect expresses AI uncertainty: 'You can't govern what you can't see.' Directly mapped to the prospect's exact words. One sentence does the work of a slide.",                                                                                                                    clip:""},
+  {tag:"positioning", ts:"~18:00", ctx:"Enterprise · AI risk",          title:"Competitive wedge without naming competitors",         body:"'Most tools only see one layer. We connect all four.' Describes the gap point solutions leave and lets the prospect fill in the blank. No competitor named. No defensiveness.",                                                                                                             clip:""},
+  {tag:"positioning", ts:"~19:30", ctx:"AI governance",                  title:"The BigID difference without jargon",                 body:"Explains the layered platform in plain terms tied to outcomes the prospect named. Total data coverage → AI identification → risk analysis → action. Clarity is the flex.",                                                                                                                  clip:""},
+  {tag:"positioning", ts:"~24:30", ctx:"Healthcare · Sage",              title:"Regulatory framing matched to prospect's north star", body:"Tailors the value prop to NIST CSF alignment — the exact regulatory framework the prospect named as their goal. Specificity signals mastery and removes the need to justify relevance.",                                                                                                   clip:""},
+  {tag:"positioning", ts:"~19:00", ctx:"Enterprise · AI risk",          title:"Outcome language before architecture",                 body:"Introduces the platform as 'guardrails that let your AI POCs move to production' — a business outcome — before showing any architecture. Features become evidence, not the pitch.",                                                                                                          clip:""},
+  {tag:"closing",     ts:"~34:30", ctx:"AI governance",                  title:"Owning the next step confidently",                    body:"Doesn't ask 'does that work for you?' — says 'let's get a technical call on the calendar for Thursday — does morning or afternoon work better?' Specific, time-boxed, assumes momentum.",                                                                                                  clip:""},
+  {tag:"closing",     ts:"~27:30", ctx:"Healthcare · Sage",              title:"Next steps with named owners",                        body:"Closes by walking through a Next Steps slide — specific deliverables, named owners, realistic timeframes. Doesn't ask if they're interested. Asks which owner should receive the follow-up.",                                                                                                 clip:""},
+  {tag:"closing",     ts:"~26:30", ctx:"Enterprise · AI risk",          title:"'How do we proceed' instead of 'are you interested'", body:"Proposes forward motion and asks for refinement — not permission. The posture says 'when we work together,' not 'if.' Entirely different energy.",                                                                                                                                       clip:""}
+];
+
+function tog(tag, btn) {
+  if (active.has(tag) && active.size > 1) { active.delete(tag); btn.classList.remove("on"); }
+  else if (!active.has(tag))              { active.add(tag);    btn.classList.add("on");    }
+  render();
+}
+
+function render() {
+  var f = data.filter(function(m){ return active.has(m.tag); });
+  document.getElementById("vis-n").textContent = f.length;
+  var ct = document.getElementById("count-txt");
+  ct.innerHTML = f.length === data.length
+    ? "Showing <strong>all " + data.length + " moments</strong>"
+    : "Showing <strong>" + f.length + " moment" + (f.length === 1 ? "" : "s") + "</strong> — filtered from " + data.length + " total";
+
+  var g = document.getElementById("grid");
+  if (!f.length) {
+    g.innerHTML = '<div class="empty">No moments match — try enabling more skill filters above.</div>';
+    return;
+  }
+
+  g.innerHTML = f.map(function(m) {
+    var videoBlock = m.clip
+      ? '<video src="' + m.clip + '" controls preload="none" style="width:100%;height:100%;object-fit:cover;display:block"></video>'
+      : '<div class="video-placeholder"><div class="play-ring"><svg viewBox="0 0 12 14" fill="none"><path d="M2 1.5l9 5-9 5V1.5z" fill="rgba(232,62,140,0.7)"/></svg></div><span class="coming-soon">Clip uploading soon</span></div>';
+
+    return '<div class="card">'
+      + '<div class="video-slot">' + videoBlock + '<span class="ts-pill">' + m.ts + '</span></div>'
+      + '<div class="card-body">'
+      + '<div class="tag-row"><span class="skill-tag t-' + m.tag + '">' + m.tag + '</span><span class="ctx-tag">' + m.ctx + '</span></div>'
+      + '<h4>' + m.title + '</h4>'
+      + '<p>' + m.body + '</p>'
+      + '<div class="card-footer"><button class="ask-btn">' + m.tag.charAt(0).toUpperCase() + m.tag.slice(1) + ' · ' + m.ctx + '</button></div>'
+      + '</div></div>';
+  }).join("");
+}
+
+render();
+</script>
+</body>
+</html>
