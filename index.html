@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BigID Sales Excellence</title>
+<title>BigID — What Great Looks Like</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
@@ -52,8 +52,7 @@ body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
 .video-slot{width:100%;aspect-ratio:16/9;background:#0D0D1A;position:relative;display:flex;align-items:center;justify-content:center}
 .video-slot video{width:100%;height:100%;object-fit:cover;display:block}
 .video-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;height:100%}
-.play-ring{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(232,62,140,0.6);display:flex;align-items:center;justify-content:center;transition:border-color 0.12s}
-.play-ring:hover{border-color:#E83E8C}
+.play-ring{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(232,62,140,0.6);display:flex;align-items:center;justify-content:center}
 .play-ring svg{width:15px;height:15px;margin-left:3px}
 .coming-soon{font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.05em}
 .ts-pill{position:absolute;bottom:10px;right:10px;background:rgba(232,62,140,0.9);color:#fff;font-size:10px;font-family:monospace;padding:3px 8px;border-radius:10px;font-weight:600}
@@ -71,9 +70,6 @@ body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
 
 .card h4{font-size:14px;font-weight:700;color:#1C1C1C;margin-bottom:6px;line-height:1.35}
 .card p{font-size:13px;color:#555;line-height:1.6}
-.card-footer{margin-top:12px}
-.ask-btn{font-size:12px;padding:6px 14px;border:1.5px solid rgba(232,62,140,0.4);border-radius:20px;color:#E83E8C;background:transparent;cursor:pointer;font-weight:600;transition:all 0.12s}
-.ask-btn:hover{background:#FDE8F2;border-color:#E83E8C}
 
 .footer-bar{background:#0D0D1A;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);margin-top:2rem}
 .footer-bar span{font-size:11px;color:rgba(255,255,255,0.25)}
@@ -84,7 +80,6 @@ body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
 </head>
 <body>
 
-<!-- ── HEADER ── -->
 <header class="header">
   <div class="logo">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -111,7 +106,6 @@ body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
   <div class="header-right">Sales Excellence Program</div>
 </header>
 
-<!-- ── HERO ── -->
 <div class="hero">
   <div class="hero-accent"></div>
   <div class="hero-accent2"></div>
@@ -129,7 +123,6 @@ body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
   </div>
 </div>
 
-<!-- ── CATALOG ── -->
 <div class="catalog-area">
   <div class="filters">
     <span class="filter-label">Filter by skill</span>
@@ -140,58 +133,53 @@ body{font-family:'Arial',sans-serif;background:#F5F5F0;color:#1C1C1C}
     <button class="pill t-relational on"   data-tag="relational"   onclick="tog('relational',this)">Relational</button>
     <button class="pill t-closing on"      data-tag="closing"      onclick="tog('closing',this)">Closing</button>
   </div>
-
   <div class="count-bar">
     <div class="count-txt" id="count-txt">Showing <strong>all 31 moments</strong></div>
   </div>
-
   <div class="grid" id="grid"></div>
 </div>
 
-<!-- ── FOOTER ── -->
 <div class="footer-bar">
   <span>BigID Internal &middot; Sales Excellence Program &middot; Confidential</span>
   <span class="footer-logo">big&middot;id</span>
 </div>
 
 <script>
+var BASE = "https://raw.githubusercontent.com/dartamus/greatcalls/main/";
 var active = new Set(["trust","discovery","storytelling","positioning","relational","closing"]);
 
-// ── CLIP DATA ──────────────────────────────────────────────────────────────
-// To add a video: replace the empty "" in clip:"" with the GitHub raw URL
-// e.g. clip:"https://raw.githubusercontent.com/yourname/repo/main/clip_01_what_we_heard_opener.mp4"
 var data = [
-  {tag:"trust",       ts:"~9:30",  ctx:"Enterprise · AI risk",          title:"'What we heard' — gold standard opener",              body:"Opens with a slide mirroring back exactly what was learned in discovery: AI Data Risk feeding LLMs with unredacted PII/PHI, no real-time controls across UK&I, AI POCs stalled. The prospect's first reaction is always recognition.",                                                                              clip:""},
-  {tag:"trust",       ts:"~9:50",  ctx:"Food & Bev · data governance",   title:"'My understanding of your needs' slide",              body:"A custom slide per prospect showing exactly what was researched before the call. The message lands before a word is spoken: I invested in you before asking for your time.",                                                                                                                        clip:""},
-  {tag:"trust",       ts:"~31:00", ctx:"AI governance",                  title:"Pre-emptive honesty on product scope",                body:"Before closing, a product limitation is volunteered unprompted. Disarms skepticism and signals long-term partnership intent. Rare in sales — and it works. The prospect's tone warms noticeably.",                                                                                                    clip:""},
-  {tag:"trust",       ts:"~6:00",  ctx:"Enterprise · AI risk",          title:"Agenda transparency from the start",                  body:"Opens by sharing the agenda, then asks 'does this match what you hoped to cover today?' Giving control before taking it — this small act consistently accelerates trust in the first five minutes.",                                                                                               clip:""},
-  {tag:"trust",       ts:"~21:00", ctx:"Healthcare · Sage",              title:"Social proof landed naturally",                       body:"Weaves in '20% of the F100 are customers' not as a boast but as a 'you're in good company' signal. Paired with RSAC and Deloitte credentials. Layered legitimacy, zero bragging.",                                                                                                              clip:""},
-  {tag:"discovery",   ts:"~8:40",  ctx:"AI governance",                  title:"The layered 'why now' probe",                         body:"When compliance comes up: 'what's driving urgency on that specifically?' — then 'who else feels that pressure?' Two questions surface budget owner, timeline, and political landscape in one exchange.",                                                                                           clip:""},
-  {tag:"discovery",   ts:"~18:30", ctx:"AI governance",                  title:"Silence after the demo",                              body:"After the platform walkthrough — stop. Don't explain. Don't fill air. Wait. What comes back reveals the prospect's real priority — something no question alone could have surfaced.",                                                                                                               clip:""},
-  {tag:"discovery",   ts:"~13:00", ctx:"Food & Bev",                     title:"Confirming the needs slide before advancing",         body:"Shows the custom slide then pauses: 'Before I go further, is this accurate? What did I miss?' Validates research, invites participation, surfaces new priorities. One question doing three jobs.",                                                                                               clip:""},
-  {tag:"discovery",   ts:"~27:00", ctx:"Enterprise · AI risk",          title:"'Who else needs to be in the room'",                  body:"After confirming alignment, asks who else has a stake — by name if possible. Maps the buying committee live, building a stakeholder picture most reps only discover after losing the deal.",                                                                                                   clip:""},
-  {tag:"discovery",   ts:"~20:00", ctx:"Healthcare · Sage",              title:"'What would make this a success for you personally'", body:"Midway through: 'If we do this right, what does success look like for you personally — not just the project?' Reframes from vendor/buyer to shared outcome partners.",                                                                                                                         clip:""},
-  {tag:"discovery",   ts:"~9:00",  ctx:"AI governance",                  title:"Industry-specific framing from minute one",           body:"Opens with industry context before the prospect has said much — signaling research was done. The prospect immediately engages rather than deflecting. Earned credibility, before a single slide.",                                                                                                clip:""},
-  {tag:"discovery",   ts:"~12:00", ctx:"Enterprise · AI risk",          title:"Referencing a prior touchpoint by name",              body:"Mentions a specific pain point from the first call — by name, without visible notes. Signals the account has been thought about between calls. The prospect visibly relaxes.",                                                                                                                  clip:""},
-  {tag:"relational",  ts:"~2:15",  ctx:"AI governance",                  title:"The tone-setting opening pause",                      body:"Opens with a genuine question about the prospect's week — then waits 3 seconds. That pause shifts the dynamic from pitch to conversation before the agenda is even shared.",                                                                                                                     clip:""},
-  {tag:"relational",  ts:"~7:30",  ctx:"Healthcare · Sage",              title:"Naming every participant directly",                   body:"When a second stakeholder joins, they're addressed by name within the first minute, their role asked about, framing adjusted. Everyone feels like the primary audience.",                                                                                                                       clip:""},
-  {tag:"relational",  ts:"~25:30", ctx:"AI governance",                  title:"Matching prospect energy mid-call",                   body:"When the prospect's tone shifts from cautious to curious, pace quickens and framing becomes collaborative. Reading the room and adjusting — not a technique, a behavior.",                                                                                                                     clip:""},
-  {tag:"relational",  ts:"~27:30", ctx:"AI governance",                  title:"Acknowledging uncertainty without rushing past it",   body:"When a prospect expresses internal uncertainty: 'that's actually really common right now' — then a pause. Validates before pivoting. The prospect feels heard, not handled.",                                                                                                                  clip:""},
-  {tag:"relational",  ts:"~20:30", ctx:"Enterprise · AI risk",          title:"Forward-leaning body language through the screen",    body:"Consistently leans slightly toward camera when the prospect speaks. Subtle physical cue signaling full attention on video. Combined with minimal interruption, makes prospects feel genuinely listened to.",                                                                                      clip:""},
-  {tag:"relational",  ts:"~9:30",  ctx:"Healthcare · Sage",              title:"The brief personal moment before business",           body:"Before the agenda, acknowledges something from a prior email — a quick genuine callback. Signals: I read what you send me. Small moment, outsized trust signal.",                                                                                                                            clip:""},
-  {tag:"relational",  ts:"~25:30", ctx:"Enterprise · AI risk",          title:"Naming the hard thing the prospect hasn't said yet",  body:"Surfaces an unspoken tension — budget timing vs. urgency — before the prospect raises it. Removes the elephant without embarrassing anyone.",                                                                                                                                              clip:""},
-  {tag:"storytelling",ts:"~13:45", ctx:"AI governance",                  title:"Virtual background as a living visual anchor",        body:"The BigID NEXT chalkboard background acts as a living slide — gesturing toward concepts naturally as they arise. Not reading a deck; the deck is reading the room.",                                                                                                                          clip:""},
-  {tag:"storytelling",ts:"~14:30", ctx:"Enterprise · AI risk",          title:"Business-Critical Blocker framing",                   body:"'Without a solution, AI initiatives remain stalled in POC.' Said aloud, then a pause. The prospect fills the silence with their own fear, in their own words. Creates conditions for them to sell themselves.",                                                                                 clip:""},
-  {tag:"storytelling",ts:"~16:30", ctx:"Food & Bev",                     title:"Find → Understand → Manage as narrative spine",       body:"Each platform stage mapped to a pain the prospect already named. The architecture feels designed for them, not shown to them. A solution narrative, not a product tour.",                                                                                                                    clip:""},
-  {tag:"storytelling",ts:"~23:30", ctx:"Enterprise · AI risk",          title:"Live deck editing as co-creation",                    body:"Edits the App Framework slide in real time while the prospect asks about integrations. The live annotation makes the prospect feel like they're building something together, not watching a demo.",                                                                                            clip:""},
-  {tag:"positioning", ts:"~21:30", ctx:"AI governance",                  title:"The AI governance pivot — crisp and jargon-free",     body:"When a prospect expresses AI uncertainty: 'You can't govern what you can't see.' Directly mapped to the prospect's exact words. One sentence does the work of a slide.",                                                                                                                    clip:""},
-  {tag:"positioning", ts:"~18:00", ctx:"Enterprise · AI risk",          title:"Competitive wedge without naming competitors",         body:"'Most tools only see one layer. We connect all four.' Describes the gap point solutions leave and lets the prospect fill in the blank. No competitor named. No defensiveness.",                                                                                                             clip:""},
-  {tag:"positioning", ts:"~19:30", ctx:"AI governance",                  title:"The BigID difference without jargon",                 body:"Explains the layered platform in plain terms tied to outcomes the prospect named. Total data coverage → AI identification → risk analysis → action. Clarity is the flex.",                                                                                                                  clip:""},
-  {tag:"positioning", ts:"~24:30", ctx:"Healthcare · Sage",              title:"Regulatory framing matched to prospect's north star", body:"Tailors the value prop to NIST CSF alignment — the exact regulatory framework the prospect named as their goal. Specificity signals mastery and removes the need to justify relevance.",                                                                                                   clip:""},
-  {tag:"positioning", ts:"~19:00", ctx:"Enterprise · AI risk",          title:"Outcome language before architecture",                 body:"Introduces the platform as 'guardrails that let your AI POCs move to production' — a business outcome — before showing any architecture. Features become evidence, not the pitch.",                                                                                                          clip:""},
-  {tag:"closing",     ts:"~34:30", ctx:"AI governance",                  title:"Owning the next step confidently",                    body:"Doesn't ask 'does that work for you?' — says 'let's get a technical call on the calendar for Thursday — does morning or afternoon work better?' Specific, time-boxed, assumes momentum.",                                                                                                  clip:""},
-  {tag:"closing",     ts:"~27:30", ctx:"Healthcare · Sage",              title:"Next steps with named owners",                        body:"Closes by walking through a Next Steps slide — specific deliverables, named owners, realistic timeframes. Doesn't ask if they're interested. Asks which owner should receive the follow-up.",                                                                                                 clip:""},
-  {tag:"closing",     ts:"~26:30", ctx:"Enterprise · AI risk",          title:"'How do we proceed' instead of 'are you interested'", body:"Proposes forward motion and asks for refinement — not permission. The posture says 'when we work together,' not 'if.' Entirely different energy.",                                                                                                                                       clip:""}
+  {tag:"trust",       ts:"~9:30",  ctx:"Enterprise · AI risk",         title:"'What we heard' — gold standard opener",              body:"Opens with a slide mirroring back exactly what was learned in discovery: AI Data Risk feeding LLMs with unredacted PII/PHI, no real-time controls across UK&I, AI POCs stalled. The prospect's first reaction is always recognition.",                                                                clip:BASE+"clip_01_what_we_heard_opener.mp4"},
+  {tag:"trust",       ts:"~9:50",  ctx:"Food & Bev · data governance",  title:"'My understanding of your needs' slide",              body:"A custom slide per prospect showing exactly what was researched before the call. The message lands before a word is spoken: I invested in you before asking for your time.",                                                                                                                    clip:BASE+"clip_02_my_understanding_of_your_needs.mp4"},
+  {tag:"trust",       ts:"~31:00", ctx:"AI governance",                 title:"Pre-emptive honesty on product scope",                body:"Before closing, a product limitation is volunteered unprompted. Disarms skepticism and signals long-term partnership intent. Rare in sales — and it works. The prospect's tone warms noticeably.",                                                                                                clip:BASE+"clip_03_preemptive_honesty.mp4"},
+  {tag:"trust",       ts:"~6:00",  ctx:"Enterprise · AI risk",         title:"Agenda transparency from the start",                  body:"Opens by sharing the agenda, then asks 'does this match what you hoped to cover today?' Giving control before taking it — this small act consistently accelerates trust in the first five minutes.",                                                                                           clip:BASE+"clip_04_agenda_transparency.mp4"},
+  {tag:"trust",       ts:"~21:00", ctx:"Healthcare · Sage",             title:"Social proof landed naturally",                       body:"Weaves in '20% of the F100 are customers' not as a boast but as a 'you're in good company' signal. Paired with RSAC and Deloitte credentials. Layered legitimacy, zero bragging.",                                                                                                          clip:BASE+"clip_05_social_proof_naturally.mp4"},
+  {tag:"discovery",   ts:"~8:40",  ctx:"AI governance",                 title:"The layered 'why now' probe",                         body:"When compliance comes up: 'what's driving urgency on that specifically?' — then 'who else feels that pressure?' Two questions surface budget owner, timeline, and political landscape in one exchange.",                                                                                         clip:BASE+"clip_06_layered_why_now_probe.mp4"},
+  {tag:"discovery",   ts:"~18:30", ctx:"AI governance",                 title:"Silence after the demo",                              body:"After the platform walkthrough — stop. Don't explain. Don't fill air. Wait. What comes back reveals the prospect's real priority — something no question alone could have surfaced.",                                                                                                             clip:BASE+"clip_07_silence_after_demo.mp4"},
+  {tag:"discovery",   ts:"~13:00", ctx:"Food & Bev",                    title:"Confirming the needs slide before advancing",         body:"Shows the custom slide then pauses: 'Before I go further, is this accurate? What did I miss?' Validates research, invites participation, surfaces new priorities. One question doing three jobs.",                                                                                             clip:BASE+"clip_08_confirming_needs_slide.mp4"},
+  {tag:"discovery",   ts:"~27:00", ctx:"Enterprise · AI risk",         title:"'Who else needs to be in the room'",                  body:"After confirming alignment, asks who else has a stake — by name if possible. Maps the buying committee live, building a stakeholder picture most reps only discover after losing the deal.",                                                                                                 clip:BASE+"clip_09_who_else_in_room.mp4"},
+  {tag:"discovery",   ts:"~20:00", ctx:"Healthcare · Sage",             title:"'What would make this a success for you personally'", body:"Midway through: 'If we do this right, what does success look like for you personally — not just the project?' Reframes from vendor/buyer to shared outcome partners.",                                                                                                                       clip:BASE+"clip_10_what_would_success_look_like.mp4"},
+  {tag:"discovery",   ts:"~9:00",  ctx:"AI governance",                 title:"Industry-specific framing from minute one",           body:"Opens with industry context before the prospect has said much — signaling research was done. The prospect immediately engages rather than deflecting. Earned credibility, before a single slide.",                                                                                              clip:BASE+"clip_11_industry_framing_first_minute.mp4"},
+  {tag:"discovery",   ts:"~12:00", ctx:"Enterprise · AI risk",         title:"Referencing a prior touchpoint by name",              body:"Mentions a specific pain point from the first call — by name, without visible notes. Signals the account has been thought about between calls. The prospect visibly relaxes.",                                                                                                              clip:BASE+"clip_12_referencing_prior_touchpoint.mp4"},
+  {tag:"relational",  ts:"~2:15",  ctx:"AI governance",                 title:"The tone-setting opening pause",                      body:"Opens with a genuine question about the prospect's week — then waits 3 seconds. That pause shifts the dynamic from pitch to conversation before the agenda is even shared.",                                                                                                                 clip:BASE+"clip_13_tone_setting_opening_pause.mp4"},
+  {tag:"relational",  ts:"~7:30",  ctx:"Healthcare · Sage",             title:"Naming every participant directly",                   body:"When a second stakeholder joins, they're addressed by name within the first minute, their role asked about, framing adjusted. Everyone feels like the primary audience.",                                                                                                                     clip:BASE+"clip_14_naming_every_participant.mp4"},
+  {tag:"relational",  ts:"~25:30", ctx:"AI governance",                 title:"Matching prospect energy mid-call",                   body:"When the prospect's tone shifts from cautious to curious, pace quickens and framing becomes collaborative. Reading the room and adjusting — not a technique, a behavior.",                                                                                                                   clip:BASE+"clip_15_matching_prospect_energy.mp4"},
+  {tag:"relational",  ts:"~27:30", ctx:"AI governance",                 title:"Acknowledging uncertainty without rushing past it",   body:"When a prospect expresses internal uncertainty: 'that's actually really common right now' — then a pause. Validates before pivoting. The prospect feels heard, not handled.",                                                                                                                clip:BASE+"clip_16_acknowledging_uncertainty.mp4"},
+  {tag:"relational",  ts:"~20:30", ctx:"Enterprise · AI risk",         title:"Forward-leaning body language through the screen",    body:"Consistently leans slightly toward camera when the prospect speaks. Subtle physical cue signaling full attention on video. Combined with minimal interruption, makes prospects feel genuinely listened to.",                                                                                    clip:BASE+"clip_17_forward_leaning_body_language.mp4"},
+  {tag:"relational",  ts:"~9:30",  ctx:"Healthcare · Sage",             title:"The brief personal moment before business",           body:"Before the agenda, acknowledges something from a prior email — a quick genuine callback. Signals: I read what you send me. Small moment, outsized trust signal.",                                                                                                                          clip:BASE+"clip_18_personal_moment_before_business.mp4"},
+  {tag:"relational",  ts:"~25:30", ctx:"Enterprise · AI risk",         title:"Naming the hard thing the prospect hasn't said yet",  body:"Surfaces an unspoken tension — budget timing vs. urgency — before the prospect raises it. Removes the elephant without embarrassing anyone.",                                                                                                                                            clip:BASE+"clip_19_naming_hard_thing.mp4"},
+  {tag:"storytelling",ts:"~13:45", ctx:"AI governance",                 title:"Virtual background as a living visual anchor",        body:"The BigID NEXT chalkboard background acts as a living slide — gesturing toward concepts naturally as they arise. Not reading a deck; the deck is reading the room.",                                                                                                                        clip:BASE+"clip_20_virtual_background_visual_anchor.mp4"},
+  {tag:"storytelling",ts:"~14:30", ctx:"Enterprise · AI risk",         title:"Business-Critical Blocker framing",                   body:"'Without a solution, AI initiatives remain stalled in POC.' Said aloud, then a pause. The prospect fills the silence with their own fear, in their own words. Creates conditions for them to sell themselves.",                                                                               clip:BASE+"clip_21_business_critical_blocker.mp4"},
+  {tag:"storytelling",ts:"~16:30", ctx:"Food & Bev",                    title:"Find → Understand → Manage as narrative spine",       body:"Each platform stage mapped to a pain the prospect already named. The architecture feels designed for them, not shown to them. A solution narrative, not a product tour.",                                                                                                                  clip:BASE+"clip_22_find_understand_manage_narrative.mp4"},
+  {tag:"storytelling",ts:"~23:30", ctx:"Enterprise · AI risk",         title:"Live deck editing as co-creation",                    body:"Edits the App Framework slide in real time while the prospect asks about integrations. The live annotation makes the prospect feel like they're building something together, not watching a demo.",                                                                                          clip:BASE+"clip_23_live_deck_editing_cocreation.mp4"},
+  {tag:"positioning", ts:"~21:30", ctx:"AI governance",                 title:"The AI governance pivot — crisp and jargon-free",     body:"When a prospect expresses AI uncertainty: 'You can't govern what you can't see.' Directly mapped to the prospect's exact words. One sentence does the work of a slide.",                                                                                                                  clip:BASE+"clip_24_ai_governance_pivot.mp4"},
+  {tag:"positioning", ts:"~18:00", ctx:"Enterprise · AI risk",         title:"Competitive wedge without naming competitors",         body:"'Most tools only see one layer. We connect all four.' Describes the gap point solutions leave and lets the prospect fill in the blank. No competitor named. No defensiveness.",                                                                                                           clip:BASE+"clip_25_competitive_wedge_no_names.mp4"},
+  {tag:"positioning", ts:"~19:30", ctx:"AI governance",                 title:"The BigID difference without jargon",                 body:"Explains the layered platform in plain terms tied to outcomes the prospect named. Total data coverage → AI identification → risk analysis → action. Clarity is the flex.",                                                                                                                clip:BASE+"clip_26_bigid_difference_no_jargon.mp4"},
+  {tag:"positioning", ts:"~24:30", ctx:"Healthcare · Sage",             title:"Regulatory framing matched to prospect's north star", body:"Tailors the value prop to NIST CSF alignment — the exact regulatory framework the prospect named as their goal. Specificity signals mastery and removes the need to justify relevance.",                                                                                                 clip:BASE+"clip_27_regulatory_framing_nist.mp4"},
+  {tag:"positioning", ts:"~19:00", ctx:"Enterprise · AI risk",         title:"Outcome language before architecture",                 body:"Introduces the platform as 'guardrails that let your AI POCs move to production' — a business outcome — before showing any architecture. Features become evidence, not the pitch.",                                                                                                        clip:BASE+"clip_28_outcome_language_before_architecture.mp4"},
+  {tag:"closing",     ts:"~34:30", ctx:"AI governance",                 title:"Owning the next step confidently",                    body:"Doesn't ask 'does that work for you?' — says 'let's get a technical call on the calendar for Thursday — does morning or afternoon work better?' Specific, time-boxed, assumes momentum.",                                                                                                clip:BASE+"clip_29_owning_next_step_confidently.mp4"},
+  {tag:"closing",     ts:"~27:30", ctx:"Healthcare · Sage",             title:"Next steps with named owners",                        body:"Closes by walking through a Next Steps slide — specific deliverables, named owners, realistic timeframes. Doesn't ask if they're interested. Asks which owner should receive the follow-up.",                                                                                               clip:BASE+"clip_30_next_steps_named_owners.mp4"},
+  {tag:"closing",     ts:"~26:30", ctx:"Enterprise · AI risk",         title:"'How do we proceed' instead of 'are you interested'", body:"Proposes forward motion and asks for refinement — not permission. The posture says 'when we work together,' not 'if.' Entirely different energy.",                                                                                                                                     clip:BASE+"clip_31_how_do_we_proceed_close.mp4"}
 ];
 
 function tog(tag, btn) {
@@ -206,27 +194,18 @@ function render() {
   var ct = document.getElementById("count-txt");
   ct.innerHTML = f.length === data.length
     ? "Showing <strong>all " + data.length + " moments</strong>"
-    : "Showing <strong>" + f.length + " moment" + (f.length === 1 ? "" : "s") + "</strong> — filtered from " + data.length + " total";
-
+    : "Showing <strong>" + f.length + " moment" + (f.length===1?"":"s") + "</strong> — filtered from " + data.length + " total";
   var g = document.getElementById("grid");
-  if (!f.length) {
-    g.innerHTML = '<div class="empty">No moments match — try enabling more skill filters above.</div>';
-    return;
-  }
-
+  if (!f.length) { g.innerHTML = '<div class="empty">No moments match — try enabling more filters above.</div>'; return; }
   g.innerHTML = f.map(function(m) {
-    var videoBlock = m.clip
-      ? '<video src="' + m.clip + '" controls preload="none" style="width:100%;height:100%;object-fit:cover;display:block"></video>'
-      : '<div class="video-placeholder"><div class="play-ring"><svg viewBox="0 0 12 14" fill="none"><path d="M2 1.5l9 5-9 5V1.5z" fill="rgba(232,62,140,0.7)"/></svg></div><span class="coming-soon">Clip uploading soon</span></div>';
-
+    var vid = '<video src="'+m.clip+'" controls preload="none" style="width:100%;height:100%;object-fit:cover;display:block"></video>';
     return '<div class="card">'
-      + '<div class="video-slot">' + videoBlock + '<span class="ts-pill">' + m.ts + '</span></div>'
-      + '<div class="card-body">'
-      + '<div class="tag-row"><span class="skill-tag t-' + m.tag + '">' + m.tag + '</span><span class="ctx-tag">' + m.ctx + '</span></div>'
-      + '<h4>' + m.title + '</h4>'
-      + '<p>' + m.body + '</p>'
-      + '<div class="card-footer"><button class="ask-btn">' + m.tag.charAt(0).toUpperCase() + m.tag.slice(1) + ' · ' + m.ctx + '</button></div>'
-      + '</div></div>';
+      +'<div class="video-slot">'+vid+'<span class="ts-pill">'+m.ts+'</span></div>'
+      +'<div class="card-body">'
+      +'<div class="tag-row"><span class="skill-tag t-'+m.tag+'">'+m.tag+'</span><span class="ctx-tag">'+m.ctx+'</span></div>'
+      +'<h4>'+m.title+'</h4>'
+      +'<p>'+m.body+'</p>'
+      +'</div></div>';
   }).join("");
 }
 
